@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Snacks</title>
+  <link rel="stylesheet" href="styles.css" type="text/css" />
+  <link rel="stylesheet" href="snacks.css" type="text/css" />
+  <script type="text/javascript" src="checkout.js"></script>
+</head>
+
+<body>
+  <img class="header" src="Images/header.png" alt="Header">
+  <div class="wrapper">
+    <div class="links">
+      <a class="link" href="index.html">Main Page</a>
+      <a class="link active" href="snacks.html">Snack Options</a>
+      <a class="link" href="movies.html">Movies and Showtimes</a>
+    </div>
+
+    <h2>Our Gargantuan Snack Menu!</h2>
+
+    <form name="form" onsubmit="validateForm()">
+      <fieldset>
+        <legend>Make Your Order in Advance:</legend>
+        <label class="text">Snacks: (Order over $20 worth and get 20% off your ticket!)</label>
+        <br>
+
+        <div class="snacks">
+          <label class="snack">
+            <img src="Images/popcorn.png" alt="Popcorn" />
+            <input type="checkbox" name="selectedsnack" id="popcorn" value="12" onclick="calculateTotal()" />$12
+          </label>
+
+          <label class="snack">
+            <img src="Images/pop.png" alt="Pop" />
+            <input type="checkbox" name="selectedsnack" id="pop" value="4" onclick="calculateTotal()" />$4
+          </label>
+
+          <label class="snack">
+            <img src="Images/popanddog.png" alt="Pop and Hotdog" />
+            <input type="checkbox" name="selectedsnack" id="pophotdog" value="15" onclick="calculateTotal()" />$15
+          </label>
+
+          <label class="snack">
+            <img src="Images/froyo.png" alt="Frozen Yogurt" />
+            <input type="checkbox" name="selectedsnack" id="yogurt" value="7" onclick="calculateTotal()" />$7
+          </label>
+
+          <label class="snack">
+            <img src="Images/chocolate.png" alt="Chocolate" />
+            <input type="checkbox" name="selectedsnack" id="chocolate" value="5" onclick="calculateTotal()" />$5
+          </label>
+
+          <label class="snack">
+            <img src="Images/combo1.png" alt="Combo 1" />
+            <input type="checkbox" name="selectedsnack" id="combo1" value="23" onclick="calculateTotal()" />$23
+          </label>
+
+          <label class="snack">
+            <img src="Images/combo2.png" alt="Combo 2" />
+            <input type="checkbox" name="selectedsnack" id="combo2" value="30" onclick=" calculateTotal()" />$30
+          </label>
+
+          <label class="snack">
+            <img src="Images/combo3.png" alt="Combo 3" />
+            <input type="checkbox" name="selectedsnack" id="combo3" value="55" onclick="calculateTotal()" />$55
+          </label>
+        </div>
+
+        <div class="price" id="totalPriceSnacks"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Order Tickets in Advance:</legend>
+        <label>Tickets:</label> <br>
+
+        <div class="tickets">
+          <label class="ticket">
+            <img src="Images/single.png" alt="Single" />
+            <input type="checkbox" name="selectedticket" id="single" value="8" onclick="calculateTotal()" checked />$8
+          </label>
+
+          <label class="ticket">
+            <img src="Images/double.png" alt="Double" />
+            <input type="checkbox" name="selectedticket" id="double" value="12" onclick="calculateTotal()" />$12
+          </label>
+
+          <label class="ticket">
+            <img src="Images/family.png" alt="Family" />
+            <input type="checkbox" name="selectedticket" id="family" value="20" onclick="calculateTotal()" />$20
+          </label>
+
+          <label class="ticket">
+            <img src="Images/party.png" alt="Party" />
+            <input type="checkbox" name="selectedticket" id="party" value="50" onclick="calculateTotal()" />$50
+          </label>
+
+          <label class="ticket">
+            <img src="Images/3d.png" alt="3D" />
+            <input type="checkbox" name="selectedticket" id="3d" value="5" onclick="calculateTotal()" />+$5
+          </label>
+
+          <label class="ticket">
+            <img src="Images/imax.png" alt="IMax" />
+            <input type="checkbox" name="selectedticket" id="imax" value="8" onclick="calculateTotal()" />+$8
+          </label>
+
+          <label class="ticket">
+            <img src="Images/vip.png" alt="VIP" />
+            <input type="checkbox" name="selectedticket" id="vip" value="10" onclick="calculateTotal()" />+$10
+          </label>
+          <br>
+        </div>
+        <div class="price" id="totalPriceTickets"></div>
+      </fieldset>
+
+      <div id="totalPrice"></div>
+
+      <div class="crdt_details">
+        <fieldset>
+          <legend>Credit Details</legend>
+          <label for='firstname'>First Name</label>
+          <input type="text" id="firstname" name='firstname' placeholder="First Name" />
+          <br><br>
+          <label for='lastname'>Last Name</label>
+          <input type="text" id="lastname" name='lastname' placeholder="Last Name" />
+          <br><br>
+          <label for='crdtnumb'>Credit Card Number</label>
+          <input type="number" id="crdtnumb" name='crdtnumb' placeholder="---- ---- ---- ----" />
+          <br><br>
+          <label for='securitynumber'>Security Number</label>
+          <input type="number" id="securitynumber" name='securitynumber' placeholder="---" />
+          <br><br>
+          <label>Expiration Date</label>
+          <select id="mon" name="mon" required>
+            <option>Please Select a Month</option>
+            <option>January</option>
+            <option>February</option>
+            <option>March</option>
+            <option>April</option>
+            <option>May</option>
+            <option>June</option>
+            <option>July</option>
+            <option>August</option>
+            <option>September</option>
+            <option>October</option>
+            <option>November</option>
+            <option>December</option>
+          </select>
+
+          <select id="day" name="day" required>
+            <option>Please Select a Day</option>
+            <option>2019</option>
+            <option>2020</option>
+            <option>2021</option>
+            <option>2022</option>
+            <option>2023</option>
+          </select>
+
+          <br><br>
+
+          <label for='email'>Email</label>
+          <input type="text" name="email" placeholder="Email" />
+
+        </fieldset>
+
+        <div class="fee">
+          <div class="row fee-subtotal">
+            <div class="col">Subtotal: </div>
+            <div class="col" id="subtotal">$0.00</div>
+          </div>
+          <div class="row fee-tax">
+            <div class="col">Tax:</div>
+            <div class="col" id="tax">$0.00</div>
+          </div>
+          <div class="row fee-total">
+            <div class="col">Total: </div>
+            <div class="col" id="total">$0.00</div>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <input class="button" id="reset" type="reset" name="reset" value="Reset" />
+          <input class="button" id="submit" type="submit" name="submit" value="Submit" />
+        </div>
+    </form>
+  </div>
+  </div>
+</body>
+
+</html>
